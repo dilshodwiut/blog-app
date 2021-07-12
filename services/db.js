@@ -11,7 +11,6 @@ class DbContext {
 
   useCollection(collection = "") {
     this.collection = path.join(root, `database/${collection}`);
-    console.log(this.collection);
   }
 
   getOne(id, successCb, errorCb) {
@@ -34,7 +33,7 @@ class DbContext {
     });
   }
 
-  saveOne(newRecord, successCb, errorCb) {
+  saveOne(newRecord, date, successCb, errorCb) {
     fs.readFile(this.collection, "utf8", (err, data) => {
       if (err) errorCb();
 
@@ -43,9 +42,10 @@ class DbContext {
       records.push({
         id: generateID(),
         author: newRecord.author,
+        date: date,
         title: newRecord.title,
         body: newRecord.body,
-        archive: false,
+        archived: false,
       });
 
       fs.writeFile(this.collection, JSON.stringify(records), (err) => {

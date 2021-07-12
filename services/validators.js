@@ -1,10 +1,10 @@
 class Validator {
   isValid(data) {
-    if (data.title.trim() === "" || data.body.trim() === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return !(
+      data.title.trim() == "" ||
+      data.body.trim() == "" ||
+      data.author.trim() == ""
+    );
   }
 }
 

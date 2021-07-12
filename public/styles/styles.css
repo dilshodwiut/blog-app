@@ -9,7 +9,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 a {
@@ -40,9 +40,10 @@ li {
   width: 2rem;
   height: 2rem;
   margin: 0.5rem 1rem;
+  transition: all 0.1s ease-in;
 }
 
-.logo:hover {
+.navbar > a:hover .logo {
   transform: scale(1.1);
 }
 
@@ -64,9 +65,8 @@ li {
 
 .intro {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
+  flex-flow: column wrap;
+  align-items: flex-start;
   width: 50%;
   margin: 5rem 5rem;
 }
@@ -80,17 +80,15 @@ li {
 }
 
 .cta {
-  color: #409b9d;
-  border: 2px solid #409b9d;
-  border-radius: 0.3rem;
-  margin: 1rem 0 1rem 0;
-  padding: 1rem 5rem;
-  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
 }
 
-.cta:hover {
-  color: rgba(64, 155, 157, 0.9);
-  border-color: rgba(64, 155, 157, 0.9);
+.main-img {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  max-width: 50%; /* he-he i tricked css, i hacked css :) */
+  max-height: 50%;
 }
 
 .msg {
@@ -116,10 +114,9 @@ li {
 
 .create-post {
   width: 75%;
-  margin: auto;
-  box-shadow: 0 0 16px 8px #ccc; /* here */
-  border-radius: 15px;
-  margin-bottom: 3rem;
+  margin: 3rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 16px 8px #ccc;
 }
 
 .form-title {
@@ -139,14 +136,19 @@ form > * {
   width: 85%;
 }
 
-.success {
-  border: 1px solid #00ff00;
+.success,
+.error {
   border-radius: 3px;
+  width: 50%;
+  margin: auto;
+}
+
+.success {
+  border: 2px solid #00ff00;
 }
 
 .error {
-  border: 1px solid red;
-  border-radius: 3px;
+  border: 2px solid #dc143c;
 }
 
 .create-post-btn {
@@ -157,6 +159,7 @@ form > * {
   padding: 1rem 3rem;
   background-color: transparent;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .create-post-btn:hover {
@@ -174,7 +177,7 @@ form > * {
 }
 
 .post-item {
-  border: 1px solid #444;
+  border: 1px solid #ccc;
   border-radius: 3px;
   width: 100%;
   margin: 2rem auto;
@@ -187,18 +190,21 @@ form > * {
 
 .delete-post,
 .archive-post {
-  transition: all 0.4s ease-in;
+  transition: all 0.3s ease-in;
   padding: 0.5rem;
   border-radius: 3px;
 }
 
-.delete-post:hover {
+.delete-post:hover,
+.archive-post:hover {
   color: #eee;
+}
+
+.delete-post:hover {
   background-color: #dc143c;
 }
 
 .archive-post:hover {
-  color: #eee;
   background-color: #ffd700;
 }
 
@@ -212,6 +218,16 @@ form > * {
   padding: 1rem;
 }
 
+.post-author,
+.post-date {
+  text-align: left;
+}
+
 .post-body {
+  margin: 3rem auto;
+  padding: 3rem;
   white-space: pre;
+  box-shadow: 0 0 16px 8px #ccc;
+  border-radius: 10px;
+  min-height: 50vh;
 }

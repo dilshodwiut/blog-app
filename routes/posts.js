@@ -8,6 +8,7 @@ const Validator = require("../services/validators");
 const DbContext = require("../services/db");
 const root = require("../utils").root;
 const getCollection = require("../utils").getCollection;
+const getEmoticon = require("../utils").getEmoticon;
 
 const dbc = new DbContext();
 const v = new Validator();
@@ -16,8 +17,17 @@ dbc.useCollection("posts.json");
 router.get("/", (req, res) => {
   dbc.getAll(
     (records) =>
-      res.render("all_posts", { title: "List of All Posts", posts: records }),
-    () => res.render("all_posts", { title: "List of All Posts", posts: null })
+      res.render("all_posts", {
+        title: "List of All Posts",
+        posts: records,
+        emoticon: getEmoticon(),
+      }),
+    () =>
+      res.render("all_posts", {
+        title: "List of All Postss",
+        posts: null,
+        emoticon: getEmoticon(),
+      })
   );
 });
 
@@ -27,9 +37,12 @@ router.get("/create-post", (req, res) => {
 
 router.post("/create-post", (req, res) => {
   if (v.isValid(req.body)) {
-    dbc.saveOne(req.body, () => res.render("create_post", { success: true }));
+    const date = new Date().toDateString();
+    dbc.saveOne(req.body, date, () =>
+      res.render("create_post", { success: true })
+    );
   } else {
-    res.render("create_post", { error: true, success: false });
+    res.render("create_post", { error: true });
   }
 });
 

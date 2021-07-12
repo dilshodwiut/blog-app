@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const posts = require("./routes/posts");
 const comments = require("./routes/comments");
 const getCollection = require("./utils").getCollection;
+const getEmoticon = require("./utils").getEmoticon;
 
 // serving static files
 app.use(express.static("public"));
@@ -35,8 +36,12 @@ app.get("/archive", (req, res) => {
   fs.readFile(getCollection("posts.json"), (err, data) => {
     if (err) res.sendStatus(500);
 
-    const posts = JSON.parse(data).filter((post) => post.archived == true);
-    res.render("all_posts", { title: "Archived Posts", posts: posts });
+    const posts = JSON.parse(data).filter((post) => post.archived);
+    res.render("all_posts", {
+      title: "Archived Posts",
+      posts: posts,
+      emoticon: getEmoticon(),
+    });
   });
 });
 
