@@ -1,10 +1,20 @@
+:root {
+  --dark-grey: #444;
+  --medium-grey: #ccc;
+  --light-grey: #eee;
+  --red: #dc143c;
+  --green: #00ff00;
+  --yellow: #ffd700;
+  --skyblue: #409b9d;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  color: #444;
+  color: var(--dark-grey);
 }
 
 html,
@@ -14,7 +24,6 @@ body {
 
 a {
   text-decoration: none;
-  color: #444;
 }
 
 li {
@@ -32,8 +41,8 @@ li {
   overflow: hidden;
   justify-content: space-between;
   align-items: center;
-  background-color: #eee;
-  border-bottom: 1px solid #ccc;
+  background-color: var(--light-grey);
+  border-bottom: 1px solid var(--medium-grey);
 }
 
 .logo {
@@ -80,13 +89,13 @@ li {
 }
 
 .cta {
-  margin: 2rem 0 1rem 0;
+  margin-top: 2rem;
 }
 
 .main-img {
   position: absolute;
   right: 10%;
-  top: 30%;
+  top: 20%;
   max-width: 50%; /* he-he i tricked css, i hacked css :) */
   max-height: 50%;
 }
@@ -116,7 +125,7 @@ li {
   width: 75%;
   margin: 3rem auto;
   border-radius: 10px;
-  box-shadow: 0 0 16px 8px #ccc;
+  box-shadow: 0 0 16px 8px var(--light-grey);
 }
 
 .form-title {
@@ -144,18 +153,18 @@ form > * {
 }
 
 .success {
-  border: 2px solid #00ff00;
+  border: 2px solid var(--green);
 }
 
 .error {
-  border: 2px solid #dc143c;
+  border: 2px solid var(--red);
 }
 
 .create-post-btn {
-  width: auto;
-  border: 3px solid #409b9d;
+  width: auto; /* suspicious */
+  border: 3px solid var(--skyblue);
   border-radius: 3px;
-  color: #409b9d;
+  color: var(--skyblue);
   padding: 1rem 3rem;
   background-color: transparent;
   font-size: 1.2rem;
@@ -177,7 +186,7 @@ form > * {
 }
 
 .post-item {
-  border: 1px solid #ccc;
+  border: 1px solid var(--medium-grey);
   border-radius: 3px;
   width: 100%;
   margin: 2rem auto;
@@ -197,15 +206,15 @@ form > * {
 
 .delete-post:hover,
 .archive-post:hover {
-  color: #eee;
+  color: var(--light-grey);
 }
 
 .delete-post:hover {
-  background-color: #dc143c;
+  background-color: var(--red);
 }
 
 .archive-post:hover {
-  background-color: #ffd700;
+  background-color: var(--yellow);
 }
 
 .all-posts {
@@ -227,7 +236,86 @@ form > * {
   margin: 3rem auto;
   padding: 3rem;
   white-space: pre;
-  box-shadow: 0 0 16px 8px #ccc;
+  box-shadow: 0 0 16px 8px var(--medium-grey);
   border-radius: 10px;
   min-height: 50vh;
+}
+
+footer {
+  border-top: 1px solid var(--medium-grey);
+  background-color: var(--light-grey);
+  padding-left: 5rem;
+}
+
+.github {
+  width: 3rem;
+  height: 1rem;
+}
+
+.github > img {
+  width: 3rem;
+  height: 1rem;
+  vertical-align: bottom;
+  /* display: block; */
+}
+
+@media screen and (max-width: 1280px) and (orientation: landscape) {
+  .main-img {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 1070px) and (orientation: landscape) {
+  .main-img {
+    max-width: 40%;
+    max-height: 40%;
+  }
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  .intro_primary {
+    font-size: 2.5rem;
+  }
+
+  .intro_secondary {
+    font-size: 1.5rem;
+  }
+
+  .cta {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 750px) and (orientation: landscape) {
+  .intro {
+    margin: 2rem 2rem;
+  }
+
+  footer {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 660px) and (orientation: landscape) {
+  .intro_primary {
+    font-size: 2rem;
+  }
+
+  .intro_secondary {
+    font-size: 1rem;
+  }
+
+  .cta {
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 530px) and (orientation: landscape) {
+  .intro_primary {
+    font-size: 1.5rem;
+  }
+
+  .cta {
+    padding: 0.5rem 1rem;
+  }
 }
