@@ -19,7 +19,7 @@
 
 html,
 body {
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 a {
@@ -77,11 +77,12 @@ li {
   flex-flow: column wrap;
   align-items: flex-start;
   width: 50%;
-  margin: 5rem 5rem;
+  margin: 5rem;
 }
 
 .intro_primary {
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .intro_secondary {
@@ -95,7 +96,6 @@ li {
 .main-img {
   position: absolute;
   right: 10%;
-  top: 20%;
   max-width: 50%; /* he-he i tricked css, i hacked css :) */
   max-height: 50%;
 }
@@ -161,7 +161,7 @@ form > * {
 }
 
 .create-post-btn {
-  width: auto; /* suspicious */
+  width: auto; /* without it, flexbox would give it width: 100%; */
   border: 3px solid var(--skyblue);
   border-radius: 3px;
   color: var(--skyblue);
@@ -245,34 +245,42 @@ footer {
   border-top: 1px solid var(--medium-grey);
   background-color: var(--light-grey);
   padding-left: 5rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  min-height: 2.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .github {
-  width: 3rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding-left: 0.5rem;
 }
 
 .github > img {
-  width: 3rem;
-  height: 1rem;
-  vertical-align: bottom;
+  width: 1.5rem;
+  height: 1.5rem;
+  /* vertical-align: bottom; */ /* ways to remove anchor tag baseline */
   /* display: block; */
 }
 
-@media screen and (max-width: 1280px) and (orientation: landscape) {
+@media screen and (max-width: 1280px) {
   .main-img {
     right: 5%;
+    max-width: 30%;
+    max-height: 30%;
   }
 }
 
-@media screen and (max-width: 1070px) and (orientation: landscape) {
-  .main-img {
-    max-width: 40%;
-    max-height: 40%;
+@media screen and (max-width: 900px) {
+  .intro {
+    margin: 3rem;
   }
-}
 
-@media screen and (max-width: 900px) and (orientation: landscape) {
   .intro_primary {
     font-size: 2.5rem;
   }
@@ -284,19 +292,21 @@ footer {
   .cta {
     font-size: 1rem;
   }
+
+  .main-img {
+    right: 10%;
+  }
+
+  footer {
+    padding-left: 3rem;
+  }
 }
 
-@media screen and (max-width: 750px) and (orientation: landscape) {
+@media screen and (max-width: 750px) {
   .intro {
     margin: 2rem 2rem;
   }
 
-  footer {
-    padding-left: 2rem;
-  }
-}
-
-@media screen and (max-width: 660px) and (orientation: landscape) {
   .intro_primary {
     font-size: 2rem;
   }
@@ -305,17 +315,31 @@ footer {
     font-size: 1rem;
   }
 
-  .cta {
-    padding: 1rem 2rem;
-  }
-}
-
-@media screen and (max-width: 530px) and (orientation: landscape) {
-  .intro_primary {
-    font-size: 1.5rem;
+  .main-img {
+    right: 10%;
   }
 
   .cta {
     padding: 0.5rem 1rem;
+  }
+
+  footer {
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .intro_primary {
+    font-size: 2rem;
+  }
+
+  .intro_secondary {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .intro_primary {
+    font-size: 1.5rem;
   }
 }
