@@ -1,8 +1,14 @@
 extends layout.pug
 
 block content
+  #spinner-back
+      #spinner-front
+        img(src="images/preloader.gif", alt="Loader", sizes="", srcset="")
+        p for showcasing only &#128526;
+
   main.intro
     h1.intro_primary World's leading platform to share ideas, for everyone.
     p.intro_secondary Supports markdown. Start blogging right now, you'll love it!
     a(href="posts/create-post" class="create-post-btn").cta Get Started
     img(src="images/content-writing.svg", alt="main image", sizes="", srcset="").main-img
+

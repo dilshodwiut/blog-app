@@ -30,6 +30,35 @@ li {
   list-style-type: none;
 }
 
+#spinner-back,
+#spinner-front {
+  position: fixed;
+  width: 100%;
+  transition: opacity 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#spinner-back {
+  top: 0;
+  height: 100%;
+  z-index: 10;
+  background: #fff;
+}
+
+#spinner-front {
+  z-index: 11;
+  text-align: center;
+  margin-top: 50vh;
+  transform: translateY(-50%); /* css trick to center horizontally */
+}
+
+#spinner-back.show,
+#spinner-front.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 .text-center {
   text-align: center;
   margin: 2rem auto 1rem auto;
