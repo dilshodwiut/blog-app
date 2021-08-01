@@ -19,7 +19,7 @@
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 a {
@@ -28,6 +28,10 @@ a {
 
 li {
   list-style-type: none;
+}
+
+img {
+  vertical-align: bottom;
 }
 
 #spinner-back,
@@ -226,6 +230,10 @@ form > * {
   align-items: center;
 }
 
+.post-links > * {
+  margin-right: 1rem;
+}
+
 .delete-post,
 .archive-post {
   transition: all 0.3s ease-in;
@@ -264,7 +272,7 @@ form > * {
 .post-body {
   margin: 3rem auto;
   padding: 3rem;
-  white-space: pre;
+  white-space: pre-wrap; /* pre, pre-line, pre-wrap */
   box-shadow: 0 0 16px 8px var(--medium-grey);
   border-radius: 10px;
   min-height: 50vh;

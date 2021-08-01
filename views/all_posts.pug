@@ -5,8 +5,11 @@ block content
     if posts.length
       ul.posts
         each post in posts
-          li.post-item 
-            a(href=`posts/${ post.id }`)= post.title
+          li.post-item
+            div.post-links
+              a(href=`posts/${ post.id }`)
+                img(src="/images/person-circle.svg", alt="User", sizes="", srcset="")
+              a(href=`posts/${ post.id }`)= post.title
             div.buttons
               if !post.archived
                 a.archive-post(href=`posts/${ post.id }/archive`) Archive

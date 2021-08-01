@@ -37,7 +37,9 @@ router.get("/create-post", (req, res) => {
 
 router.post("/create-post", (req, res) => {
   if (v.isValid(req.body)) {
-    const date = new Date().toDateString();
+    // const date = new Date().toDateString();
+    const date = new Date().toLocaleString();
+    // const date = new Date().toString();
     dbc.saveOne(req.body, date, () =>
       res.render("create_post", { success: true })
     );
