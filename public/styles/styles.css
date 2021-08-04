@@ -230,8 +230,21 @@ form > * {
   align-items: center;
 }
 
+/* .post-links {
+  width: 100%;
+} */
+
 .post-links > * {
   margin-right: 1rem;
+}
+
+.post-icon {
+  display: inline-block;
+  width: 24px;
+}
+
+.post-icon img {
+  width: 100%;
 }
 
 .delete-post,
