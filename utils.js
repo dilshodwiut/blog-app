@@ -1,15 +1,13 @@
 const path = require("path");
 const emoticons = [
-  "¯\\_(ツ)_/¯",
   "(>_<)",
-  "\\(⌣_⌣)/",
   "(✖╭╮✖)",
-  "( ͡ಠ ʖ̯ ͡ಠ)",
-  "¯\\_(ツ)_/¯",
-  "(>_<)",
-  "\\(⌣_⌣)/",
-  "(✖╭╮✖)",
-  "( ͡ಠ ʖ̯ ͡ಠ)",
+  "¯\\_( •︠  ͟ʖ ︡•)_/¯",
+  "(-_-)",
+  "(T_T)",
+  ":|",
+  "(^_^)",
+  "ó_ò",
 ];
 
 module.exports.generateID = function () {
@@ -27,5 +25,5 @@ module.exports.getCollection = function (collection) {
 };
 
 module.exports.getEmoticon = function () {
-  return emoticons[Math.floor(Math.random() * 10)];
+  return emoticons[Math.floor(Math.random() * 8)];
 };

@@ -54,7 +54,7 @@ img {
   z-index: 11;
   text-align: center;
   margin-top: 50vh;
-  transform: translateY(-50%); /* css trick to center horizontally */
+  transform: translateY(-50%); /* css trick to center vertically */
 }
 
 #spinner-back.show,
@@ -128,9 +128,10 @@ img {
 
 .main-img {
   position: absolute;
-  right: 10%;
-  max-width: 50%; /* he-he i tricked css, i hacked css :) */
-  max-height: 50%;
+  top: 5%;
+  right: 3%;
+  max-width: 45%; /* css tricks, go brrrrrr :) */
+  z-index: -1;
 }
 
 .msg {
@@ -140,6 +141,7 @@ img {
   justify-content: center;
   align-items: center;
   align-content: space-between;
+  margin: calc(50vh - 4rem - 1.1rem - 5rem) auto;
 }
 
 .msg > * {
@@ -216,6 +218,7 @@ form > * {
 .posts {
   width: 85%;
   margin: auto;
+  min-height: calc(100vh - 49px - 40px - 2rem);
 }
 
 .post-item {
@@ -299,10 +302,6 @@ footer {
   flex-flow: row wrap;
   align-items: center;
   min-height: 2.5rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .github {
@@ -321,8 +320,7 @@ footer {
 @media screen and (max-width: 1280px) {
   .main-img {
     right: 5%;
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 45%;
   }
 }
 
@@ -344,7 +342,7 @@ footer {
   }
 
   .main-img {
-    right: 10%;
+    right: 3%;
   }
 
   footer {
@@ -366,7 +364,8 @@ footer {
   }
 
   .main-img {
-    right: 10%;
+    top: 10%;
+    right: 3%;
   }
 
   .cta {
